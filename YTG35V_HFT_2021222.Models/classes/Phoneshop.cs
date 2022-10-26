@@ -20,10 +20,7 @@ namespace YTG35V_HFT_2021222.Models.classes
 
         [Range(0, 10000)]
         public double Income { get; set; }
-
-        [Required]
-        [StringLength(240)]
-        public string EmployeesId { get; set; }
+ 
 
         [Range(0, 10)]
         public double Rating { get; set; }

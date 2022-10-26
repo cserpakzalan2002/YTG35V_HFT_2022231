@@ -17,13 +17,14 @@ namespace YTG35V_HFT_2021222.Models.classes
 
         [Required]
         [StringLength(240)]
-        
         public string EmployeeName { get; set; }
 
+        [ForeignKey(nameof(Phoneshop))]
+        public int PhoneshopId { get; set; }
         public DateTime HireDate { get; set; }
         public double EmployeeRating { get; set; }
 
-        public virtual ICollection<Phoneshop> Phoneshops { get; set; }
+        public virtual Phoneshop Phoneshops { get; set; }
         public virtual ICollection<Phones> Phones { get; set; }
         public Employee()
         {
