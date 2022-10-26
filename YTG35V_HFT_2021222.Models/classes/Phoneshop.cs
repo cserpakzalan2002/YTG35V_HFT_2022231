@@ -39,7 +39,11 @@ namespace YTG35V_HFT_2021222.Models.classes
 
         public Phoneshop(string line)
         {
-            string[] split = line.Split('*');
+            string[] split = line.Split('#');
+            PhoneshopId = int.Parse(split[0]);
+            ShopName = split[1];
+            Income = int.Parse(split[2]);
+            Rating = int.Parse(split[3]);
         }
     }
 }

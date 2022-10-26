@@ -13,17 +13,14 @@ namespace YTG35V_HFT_2021222.Models.classes
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         
-        public string Phoneid { get; set; }
+        public int Phoneid { get; set; }
 
         [StringLength(240)]
         public string Brand { get; set; }
 
         [ForeignKey(nameof(Phoneshop))]
-        public int EmployeesId { get; set; }
-        public int PhonesModelid { get; set; }
+        public int EmployeesId { get; set; }       
 
-        [StringLength(240)]
-        public string PhonesModel { get; set; }
         public double PhonesRating { get; set; }
 
         public virtual Employee Employees { get; set; }
@@ -34,7 +31,11 @@ namespace YTG35V_HFT_2021222.Models.classes
         }
         public Phones(string line)
         {
-            string[] split = line.Split('*');
+            string[] split = line.Split('#');
+            Phoneid = int.Parse(split[0]);
+            Brand = split[1];
+            EmployeesId = int.Parse(split[2]);
+            PhonesRating = int.Parse(split[3]);
         }
 
     }

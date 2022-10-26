@@ -21,7 +21,7 @@ namespace YTG35V_HFT_2021222.Models.classes
 
         [ForeignKey(nameof(Phoneshop))]
         public int PhoneshopId { get; set; }
-        public DateTime HireDate { get; set; }
+       
         public double EmployeeRating { get; set; }
 
         public virtual Phoneshop Phoneshops { get; set; }
@@ -32,7 +32,11 @@ namespace YTG35V_HFT_2021222.Models.classes
         }
         public Employee(string line)
         {
-            string[] split = line.Split('*');
+            string[] split = line.Split('#');
+            EmployeesId = int.Parse(split[0]);
+            EmployeeName = split[1];
+            PhoneshopId = int.Parse(split[2]);
+            EmployeeRating = int.Parse(split[3]);
         }
 
     }
