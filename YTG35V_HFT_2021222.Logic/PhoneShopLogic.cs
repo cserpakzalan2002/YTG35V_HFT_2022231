@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace YTG35V_HFT_2021222.Logic
 {
-    public class PhoneShopLogic 
+    public class PhoneShopLogic : IPhoneShopLogic
     {
         IRepository<Phoneshop> repo;
 
@@ -17,26 +17,26 @@ namespace YTG35V_HFT_2021222.Logic
 
         public void Create(Phoneshop item)
         {
-            if(item.ShopName.Length <3)
+            if (item.ShopName.Length < 3)
             {
                 throw new ArgumentException("The shop name is too short");
             }
-            
-                this.repo.Create(item);
-            
-            
+
+            this.repo.Create(item);
+
+
         }
 
         public void Delete(Phoneshop id)
         {
-            
+
             this.repo.Delete(id);
         }
 
         public Phoneshop Read(int id)
         {
             var asd = this.repo.Read(id);
-            if(asd == null)
+            if (asd == null)
             {
                 throw new ArgumentException("The shop  not exist");
             }
@@ -51,6 +51,16 @@ namespace YTG35V_HFT_2021222.Logic
         public void Update(Phoneshop item)
         {
             this.repo.Update(item);
+        }
+
+        //non cruds
+
+        public double Avarage(string number)
+        {
+            return this.repo.ReadAll()
+                .Where(t => t.ShopName == number)
+                .Average(t => t.Rating);
+
         }
     }
 }
