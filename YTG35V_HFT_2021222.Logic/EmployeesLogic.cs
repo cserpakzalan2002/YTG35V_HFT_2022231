@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+
 using YTG35V_HFT_2021222.Models.classes;
 using YTG35V_HFT_2021222.Repository;
 
@@ -52,5 +54,16 @@ namespace YTG35V_HFT_2021222.Logic
         {
             this.repo.Update(item);
         }
+
+        public double EmployeesRating(string number)
+        {
+            return this.repo.ReadAll()
+                .Where(t => t.EmployeeName == number)
+                .Average(t => t.EmployeeRating);
+
+        }
+
+
+
     }
 }

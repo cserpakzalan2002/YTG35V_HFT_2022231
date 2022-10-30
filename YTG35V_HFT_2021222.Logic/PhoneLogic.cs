@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using YTG35V_HFT_2021222.Models.classes;
 using YTG35V_HFT_2021222.Repository;
+using System.Collections;
+
 
 namespace YTG35V_HFT_2021222.Logic
 {
@@ -52,5 +54,16 @@ namespace YTG35V_HFT_2021222.Logic
         {
             this.repo.Update(item);
         }
+
+        public double PhoneRating(string number)
+        {
+            return this.repo.ReadAll()
+                .Where(t => t.Brand == number)
+                .Average(t => t.PhonesRating);
+
+        }
+
+       
+
     }
 }

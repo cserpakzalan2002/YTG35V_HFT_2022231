@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using YTG35V_HFT_2021222.Models.classes;
 
 namespace YTG35V_HFT_2021222.Logic
 {
     public interface IPhoneShopLogic
     {
-        double Avarage(string number);
+        public IEnumerable<Employee> Workers(int vmi);
         void Create(Phoneshop item);
         void Delete(Phoneshop id);
         Phoneshop Read(int id);

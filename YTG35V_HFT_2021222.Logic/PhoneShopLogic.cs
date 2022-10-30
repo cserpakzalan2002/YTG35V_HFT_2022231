@@ -3,6 +3,8 @@ using YTG35V_HFT_2021222.Repository;
 using YTG35V_HFT_2021222.Models;
 using YTG35V_HFT_2021222.Models.classes;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace YTG35V_HFT_2021222.Logic
 {
@@ -55,12 +57,19 @@ namespace YTG35V_HFT_2021222.Logic
 
         //non cruds
 
-        public double Avarage(string number)
+        public double AvaragePhoneshop(string number)
         {
             return this.repo.ReadAll()
                 .Where(t => t.ShopName == number)
                 .Average(t => t.Rating);
 
         }
+
+        public IEnumerable<Employee> Workers(int vmi)
+        {
+            return this.repo.Read(vmi).Employees;
+                
+        }
+       
     }
 }
