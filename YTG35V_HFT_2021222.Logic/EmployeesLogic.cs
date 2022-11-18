@@ -65,7 +65,7 @@ namespace YTG35V_HFT_2021222.Logic
         public double GetAVgEmployees(int id)
         {
             return this.repo.Read(id).Phones
-                .Average(t => t.EmployeesId);
+                .Average(t => t.Phoneid);
         }
 
         
