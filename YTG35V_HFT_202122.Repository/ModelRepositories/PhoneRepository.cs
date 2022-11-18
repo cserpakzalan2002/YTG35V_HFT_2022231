@@ -9,7 +9,7 @@ using YTG35V_HFT_2021222.Models.classes;
 namespace YTG35V_HFT_2021222.Repository
 {
 
-    internal class PhoneRepository<T> : Repository<Phones>, IRepository<Phones>
+    public class PhoneRepository : Repository<Phones>, IRepository<Phones>
     {
         public PhoneRepository(PhoneDbContext ctx) : base(ctx)
         {

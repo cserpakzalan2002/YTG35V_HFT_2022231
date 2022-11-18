@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace YTG35V_HFT_2021222.Logic
 {
-    class PhoneLogic : IPhoneLogic
+   public class PhoneLogic : IPhoneLogic
     {
         IRepository<Phones> repo;
 

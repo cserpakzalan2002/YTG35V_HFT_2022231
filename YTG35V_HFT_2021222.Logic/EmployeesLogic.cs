@@ -10,7 +10,7 @@ using YTG35V_HFT_2021222.Repository;
 
 namespace YTG35V_HFT_2021222.Logic
 {
-    class EmployeesLogic : IEmployeesLogic
+    public class EmployeesLogic : IEmployeesLogic
     {
         IRepository<Employee> repo;
 

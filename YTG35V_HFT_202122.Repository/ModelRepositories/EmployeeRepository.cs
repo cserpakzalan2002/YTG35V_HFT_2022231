@@ -8,7 +8,7 @@ using YTG35V_HFT_2021222.Models.classes;
 
 namespace YTG35V_HFT_2021222.Repository
 {
-    class EmployeeRepository<T> : Repository<Employee>, IRepository<Employee>
+    public class EmployeeRepository : Repository<Employee>, IRepository<Employee>
     {
 
         public EmployeeRepository(PhoneDbContext ctx) : base(ctx)
