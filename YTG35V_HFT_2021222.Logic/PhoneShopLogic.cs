@@ -37,12 +37,13 @@ namespace YTG35V_HFT_2021222.Logic
 
         public Phoneshop Read(int id)
         {
-            var asd = this.repo.Read(id);
+            Phoneshop asd = this.repo.Read(id);
             if (asd == null)
             {
                 throw new ArgumentException("The shop  not exist");
             }
-            return this.repo.Read(id);
+            
+            return asd;
         }
 
         public IQueryable<Phoneshop> ReadAll()

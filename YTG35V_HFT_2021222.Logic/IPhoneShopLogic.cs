@@ -6,7 +6,7 @@ namespace YTG35V_HFT_2021222.Logic
 {
     public interface IPhoneShopLogic
     {
-        public IEnumerable<Employee> Workers(int vmi);
+        
         void Create(Phoneshop item);
         void Delete(int id);
         Phoneshop Read(int id);
