@@ -17,6 +17,7 @@ namespace YTG35V_HFT_2021222.Repository
         public override Employee Read(int id)
         {
             return ctx.employees.FirstOrDefault(t => t.EmployeesId == id);
+
         }
 
         public override void Update(Employee item)

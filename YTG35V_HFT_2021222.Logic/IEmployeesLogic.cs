@@ -5,6 +5,7 @@ namespace YTG35V_HFT_2021222.Logic
 {
     interface IEmployeesLogic
     {
+        public double EmployeesRating(string number);
         void Create(Employee item);
         void Delete(Employee id);
         Employee Read(int id);

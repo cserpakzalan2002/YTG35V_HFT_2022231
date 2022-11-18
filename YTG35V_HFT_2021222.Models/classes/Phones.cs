@@ -38,5 +38,7 @@ namespace YTG35V_HFT_2021222.Models.classes
             PhonesRating = int.Parse(split[3]);
         }
 
+
+       
     }
 }
