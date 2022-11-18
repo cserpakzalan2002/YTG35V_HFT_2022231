@@ -85,5 +85,10 @@ namespace YTG35V_HFT_2021222.Logic
             return this.repo.Read(id).Employees
                 .Max(t => t.EmployeesId);
         }
+        public double GetoldestEmployees(int id)
+        {
+            return this.repo.Read(id).Employees
+                .Min(t => t.EmployeesId);
+        }
     }
 }
