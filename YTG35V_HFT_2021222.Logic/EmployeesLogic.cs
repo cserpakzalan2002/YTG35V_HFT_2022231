@@ -67,7 +67,8 @@ namespace YTG35V_HFT_2021222.Logic
             return this.repo.Read(id).Phones
                 .Average(t => t.Phoneid);
         }
-
         
+
+
     }
 }

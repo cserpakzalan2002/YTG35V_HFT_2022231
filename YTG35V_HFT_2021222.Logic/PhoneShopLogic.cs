@@ -75,10 +75,15 @@ namespace YTG35V_HFT_2021222.Logic
             return this.repo.Read(id).Employees
                 .Average(t => t.EmployeesId);
         }
-        public double GetmaxratingEmployees(int id)
+        public double Getnewestphone(int id)
         {
             return this.repo.Read(id).Phones
                 .Max(t=>t.PhonesRating);
+        }
+        public double GetnewestEmployees(int id)
+        {
+            return this.repo.Read(id).Employees
+                .Max(t => t.EmployeesId);
         }
     }
 }
