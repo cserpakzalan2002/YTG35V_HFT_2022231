@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YTG35V_HFT_202122.Repository\YTG35V_HFT_2021222.Repository.csproj" />
     <ProjectReference Include="..\YTG35V_HFT_2021222.Models\YTG35V_HFT_2021222.Models.csproj" />
   </ItemGroup>
 

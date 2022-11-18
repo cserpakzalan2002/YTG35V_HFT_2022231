@@ -23,9 +23,9 @@ namespace YTG35V_HFT_2021222.Repository
             ctx.SaveChanges();
         }
 
-        public void Delete(T id)
+        public void Delete(int id)
         {
-            ctx.Set<T>().Remove(id);
+            ctx.Set<T>().Remove(Read(id));
             ctx.SaveChanges();
         }
 

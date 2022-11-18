@@ -13,7 +13,7 @@ namespace YTG35V_HFT_2021222.Repository
         T Read(int id);
 
         void Create(T item);
-        void Delete(T id);
+        void Delete(int id);
         void Update(T item);
     }
 }

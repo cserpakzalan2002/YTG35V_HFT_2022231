@@ -8,7 +8,7 @@ namespace YTG35V_HFT_2021222.Logic
     {
         public IEnumerable<Employee> Workers(int vmi);
         void Create(Phoneshop item);
-        void Delete(Phoneshop id);
+        void Delete(int id);
         Phoneshop Read(int id);
         IQueryable<Phoneshop> ReadAll();
         void Update(Phoneshop item);

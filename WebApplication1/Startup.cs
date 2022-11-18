@@ -17,7 +17,7 @@ using YTG35V_HFT_2021222.Logic;
 using YTG35V_HFT_2021222.Models.classes;
 using YTG35V_HFT_2021222.Repository;
 
-namespace YTG35V_HFT_2021222.Endpoint
+namespace WebApplication1
 {
     public class Startup
     {
@@ -36,12 +36,12 @@ namespace YTG35V_HFT_2021222.Endpoint
             services.AddTransient<IRepository<Phoneshop>, IphoneShopRepository>();
             services.AddTransient<IRepository<Employee>, EmployeeRepository>();
             services.AddTransient<IRepository<Phones>, PhoneRepository>();
-           
+
 
             services.AddTransient<IPhoneShopLogic, PhoneShopLogic>();
             services.AddTransient<IEmployeesLogic, EmployeesLogic>();
             services.AddTransient<IPhoneLogic, PhoneLogic>();
-            
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -49,7 +49,7 @@ namespace YTG35V_HFT_2021222.Endpoint
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieDbApp.Endpoint", Version = "v1" });
             });
         }
-       
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

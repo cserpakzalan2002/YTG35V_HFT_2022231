@@ -29,7 +29,7 @@ namespace YTG35V_HFT_2021222.Logic
 
         }
 
-        public void Delete(Employee id)
+        public void Delete(int id)
         {
 
             this.repo.Delete(id);

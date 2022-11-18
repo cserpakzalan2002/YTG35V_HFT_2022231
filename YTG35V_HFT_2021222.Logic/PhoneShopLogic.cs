@@ -29,7 +29,7 @@ namespace YTG35V_HFT_2021222.Logic
 
         }
 
-        public void Delete(Phoneshop id)
+        public void Delete(int id)
         {
 
             this.repo.Delete(id);
@@ -70,11 +70,7 @@ namespace YTG35V_HFT_2021222.Logic
             return this.repo.Read(vmi).Employees;
                 
         }
-        public double GetAVgphoneshoplogic(int id)
-        {
-            return this.repo.Read(id).Employees
-                .Average(t => t.EmployeesId);
-        }
+       
         public double Getnewestphone(int id)
         {
             return this.repo.Read(id).Phones
