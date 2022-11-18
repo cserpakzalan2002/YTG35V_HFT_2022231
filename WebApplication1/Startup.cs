@@ -11,13 +11,14 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using YTG35V_HFT_202122.Repository;
 using YTG35V_HFT_2021222.Logic;
 using YTG35V_HFT_2021222.Models.classes;
 using YTG35V_HFT_2021222.Repository;
 
-namespace WebApplication1
+namespace YTG35V_HFT_2021222.Endpoint
 {
     public class Startup
     {
@@ -31,7 +32,7 @@ namespace WebApplication1
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<PhoneDbContext>();
+            services.AddSingleton<PhoneDbContext>();
 
             services.AddTransient<IRepository<Phoneshop>, IphoneShopRepository>();
             services.AddTransient<IRepository<Employee>, EmployeeRepository>();
@@ -42,8 +43,10 @@ namespace WebApplication1
             services.AddTransient<IEmployeesLogic, EmployeesLogic>();
             services.AddTransient<IPhoneLogic, PhoneLogic>();
 
+            services.AddControllers().AddJsonOptions(x =>
+   x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
-            services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieDbApp.Endpoint", Version = "v1" });

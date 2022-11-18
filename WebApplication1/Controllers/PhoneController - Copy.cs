@@ -13,34 +13,34 @@ namespace YTG35V_HFT_2021222.Endpoint.Controllers
     [Route("[controller]")]
     [ApiController]
     
-    public class PhoneShopController : ControllerBase
+    public class PhoneController : ControllerBase
     {
-        IPhoneShopLogic logic;
-        public PhoneShopController(IPhoneShopLogic logic)
+        IPhoneLogic logic;
+        public PhoneController(IPhoneLogic logic)
         {
             this.logic = logic;
         }
 
         [HttpGet]
-        public IEnumerable<Phoneshop> ReadAll()
+        public IEnumerable<Phones> ReadAll()
         {
             return this.logic.ReadAll();
         }
 
         [HttpGet("{id}")]
-        public Phoneshop Read(int id)
+        public Phones Read(int id)
         {
             return this.logic.Read(id);
         }
 
         [HttpPost]
-        public void Create([FromBody] Phoneshop value)
+        public void Create([FromBody] Phones value)
         {
             this.logic.Create(value);
         }
 
         [HttpPut]
-        public void Put([FromBody] Phoneshop value)
+        public void Put([FromBody] Phones value)
         {
             this.logic.Update(value);
         }
