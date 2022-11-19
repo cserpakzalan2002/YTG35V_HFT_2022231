@@ -21,7 +21,7 @@ namespace YTG35V_HFT_2021222.Logic
 
         public void Create(Phones item)
         {
-            if (item.Brand.Length < 3)
+            if (item.Brand.Length < 1)
             {
                 throw new ArgumentException("The shop name is too short");
             }

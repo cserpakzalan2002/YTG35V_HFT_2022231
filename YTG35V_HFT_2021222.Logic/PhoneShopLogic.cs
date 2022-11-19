@@ -19,7 +19,7 @@ namespace YTG35V_HFT_2021222.Logic
 
         public void Create(Phoneshop item)
         {
-            if (item.ShopName.Length < 3)
+            if (item.ShopName.Length < 1)
             {
                 throw new ArgumentException("The shop name is too short");
             }
@@ -80,12 +80,12 @@ namespace YTG35V_HFT_2021222.Logic
         public double GetnewestEmployees(int id)
         {
             return this.repo.Read(id).Employees
-                .Max(t => t.EmployeesId);
+                .Max(t => t.EmployeeId);
         }
         public double GetoldestEmployees(int id)
         {
             return this.repo.Read(id).Employees
-                .Min(t => t.EmployeesId);
+                .Min(t => t.EmployeeId);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace YTG35V_HFT_2021222.Models.classes
@@ -24,6 +25,7 @@ namespace YTG35V_HFT_2021222.Models.classes
         public double PhonesRating { get; set; }
 
         public virtual Employee Employees { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Phoneshop>  Phoneshops { get; set; }
         public Phones()
         {

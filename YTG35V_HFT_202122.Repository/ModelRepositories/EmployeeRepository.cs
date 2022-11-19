@@ -16,13 +16,13 @@ namespace YTG35V_HFT_2021222.Repository
         }
         public override Employee Read(int id)
         {
-            return ctx.employees.FirstOrDefault(t => t.EmployeesId == id);
+            return ctx.employees.FirstOrDefault(t => t.EmployeeId == id);
 
         }
 
         public override void Update(Employee item)
         {
-            var old = Read(item.EmployeesId);
+            var old = Read(item.EmployeeId);
             foreach (var prop in old.GetType().GetProperties())
             {
                 prop.SetValue(old, prop.GetValue(item));

@@ -31,7 +31,7 @@ namespace YTG35V_HFT_202122.Repository
             modelBuilder.Entity<Employee>(Employee => Employee
                 .HasOne(Employee => Employee.Phoneshops)
                 .WithMany(shop => shop.Employees)
-                .HasForeignKey(employeesid => employeesid.EmployeesId)
+                .HasForeignKey(employeesid => employeesid.PhoneshopId)
                 .OnDelete(DeleteBehavior.Cascade));
 
 
@@ -42,6 +42,8 @@ namespace YTG35V_HFT_202122.Repository
                .OnDelete(DeleteBehavior.Cascade));
 
 
+
+            
 
             modelBuilder.Entity<Phoneshop>().HasData(new Phoneshop[]
             {
@@ -96,7 +98,7 @@ namespace YTG35V_HFT_202122.Repository
                 new Phones("23#Iphone 13#11#3"),
                 new Phones("24#Iphone 13 Pro#12#1"),
                 new Phones("25#Iphone 13 Pro Max#1#4"),
-                new Phones("26#Iphone 14#2#4"),
+                new Phones("26#Iphone 14#2#1"),
                 new Phones("27#Iphone 14 Pro#3#3"),
                 new Phones("28#Iphone 14 Pro Max#4#2"),
                
