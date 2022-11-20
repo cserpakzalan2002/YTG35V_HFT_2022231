@@ -6,7 +6,8 @@ namespace YTG35V_HFT_2021222.Logic
 {
     public interface IPhoneShopLogic
     {
-        public IEnumerable<OldestEmployee> oldestEmployees(IEmployeesLogic logic);
+        public IEnumerable<EmployeesToShops> EmployeesToShopss(IEmployeesLogic logic);
+        public EmployeesToShops Bestshop(IEmployeesLogic logic);
         void Create(Phoneshop item);
         void Delete(int id);
         Phoneshop Read(int id);

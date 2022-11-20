@@ -59,7 +59,7 @@ namespace YTG35V_HFT_202122.Repository
                    new Employee("1#Jon Favreau#1#5"),
                 new Employee("2#Louis Leterrier#1#5"),
                 new Employee("3#Kenneth Branagh#1#4"),
-                new Employee("4#Joe Johnston#2#2"),
+                new Employee("4#Joe Johnston#1#2"),
                 new Employee("5#Joss Whedon#2#3"),
                 new Employee("6#Shane Black#2#3"),
                 new Employee("7#Alan Taylor#3#5"),
@@ -98,7 +98,7 @@ namespace YTG35V_HFT_202122.Repository
                 new Phones("23#Iphone 13#11#3"),
                 new Phones("24#Iphone 13 Pro#12#1"),
                 new Phones("25#Iphone 13 Pro Max#1#4"),
-                new Phones("26#Iphone 14#2#1"),
+                new Phones("26#Iphone 14#1#1"),
                 new Phones("27#Iphone 14 Pro#3#3"),
                 new Phones("28#Iphone 14 Pro Max#4#2"),
                

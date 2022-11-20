@@ -63,17 +63,37 @@ namespace YTG35V_HFT_2021222.Logic
                      group y by y.EmployeeName into g
                      select new GreatEmployee()
                      {
-                         szam = g.Key,
+                         name = g.Key,
                          count = g.Count()
                      };
             return q1;
         }
 
+        public GreatEmployee BestEmployee(IPhoneLogic logic)
+        {
+            var q1 = from x in logic.ReadAll()
+                     from y in repo.ReadAll()
+                     where x.EmployeesId == y.EmployeeId
+                     group y by y.EmployeeName into g
+                     select new GreatEmployee()
+                     {
+                         name = g.Key,
+                         count = g.Count()
+                     };
+
+            var qseged = q1.Max(t => t.count);
+            var q2 = q1.FirstOrDefault(t => t.count == qseged);
+            return q2;
+  
+                
+        }
+
+
     }
 
     public class GreatEmployee
     {
-        public string szam { get; set; }
+        public string name { get; set; }
         public int count { get; set; }
     }
 }

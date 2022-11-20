@@ -26,15 +26,25 @@ namespace YTG35V_HFT_2021222.Endpoint.Controllers
         }
 
         [HttpGet()]
-        public IEnumerable<OldestEmployee> ReadAll()
+        public IEnumerable<EmployeesToShops> EmployeesToShopss()
         {
-            return this.logic1.oldestEmployees(logic);
+            return this.logic1.EmployeesToShopss(logic);
+        }
+        [HttpGet()]
+        public EmployeesToShops BestShop()
+        {
+            return this.logic1.Bestshop(logic);
         }
 
         [HttpGet()]
-        public IEnumerable<GreatEmployee> valami()
+        public IEnumerable<GreatEmployee> EmployeesToPhoneCountWhatheysell()
         {
             return this.logic.greatEmployees(logic2);
+        }
+        [HttpGet()]
+        public GreatEmployee BestEmployee()
+        {
+            return this.logic.BestEmployee(logic2);
         }
 
 

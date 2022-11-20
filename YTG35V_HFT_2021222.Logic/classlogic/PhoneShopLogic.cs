@@ -88,20 +88,36 @@ namespace YTG35V_HFT_2021222.Logic
                 .Min(t => t.EmployeeId);
         }
         
-        public IEnumerable<OldestEmployee> oldestEmployees(IEmployeesLogic logic)
+        public IEnumerable<EmployeesToShops> EmployeesToShopss(IEmployeesLogic logic)
         {
             var q1 = from x in logic.ReadAll()
                      from y in repo.ReadAll()
                      where x.PhoneshopId == y.PhoneshopId
                      group y by y.PhoneshopId into g
-                     select new OldestEmployee()
+                     select new EmployeesToShops()
                      {
-                         szam = g.Key.ToString(),
+                         name = g.Key.ToString(),
                          count = g.Count()
                      };
             return q1;
         }
-        
+        public EmployeesToShops Bestshop(IEmployeesLogic logic)
+        {
+            var q1 = from x in logic.ReadAll()
+                     from y in repo.ReadAll()
+                     where x.PhoneshopId == y.PhoneshopId
+                     group y by y.ShopName into g
+                     select new EmployeesToShops()
+                     {
+                         name = g.Key,
+                         count = g.Count()
+                     };
+
+            var qseged = q1.Max(t => t.count);
+            var q2 = q1.FirstOrDefault(t => t.count == qseged);
+            return q2;
+        }
+
 
 
 
@@ -110,9 +126,9 @@ namespace YTG35V_HFT_2021222.Logic
     }
 
 
-    public class OldestEmployee
+    public class EmployeesToShops
     {
-        public string szam { get; set; }
+        public string name { get; set; }
         public int count { get; set; }
         
     }

@@ -7,6 +7,7 @@ namespace YTG35V_HFT_2021222.Logic
     public interface IEmployeesLogic
     {
         public IEnumerable<GreatEmployee> greatEmployees(IPhoneLogic logic);
+        public GreatEmployee BestEmployee(IPhoneLogic logic);
         void Create(Employee item);
         void Delete(int id);
         Employee Read(int id);
