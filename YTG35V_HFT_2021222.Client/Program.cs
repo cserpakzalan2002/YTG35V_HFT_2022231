@@ -14,7 +14,19 @@ namespace YTG35V_HFT_2021222.Client
             {
                 Console.Write("Enter phoneshop Name: ");
                 string name = Console.ReadLine();
-                rest.Post(new Phoneshop() { ShopName = name }, "shop");
+                rest.Post(new Phoneshop() { ShopName = name }, "phoneshop");
+            }
+            if(entity == "Phones")
+            {
+                Console.Write("Enter phones Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new Phones() { Brand = name }, "phones");
+            }
+            if (entity == "Employee")
+            {
+                Console.Write("Enter employee Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new Employee() { EmployeeName = name }, "employee");
             }
         }
         static void List(string entity)
@@ -25,6 +37,22 @@ namespace YTG35V_HFT_2021222.Client
                 foreach (var item in shops)
                 {
                     Console.WriteLine(item.PhoneshopId + ": " + item.ShopName);
+                }
+            }
+            if(entity == "Phones")
+            {
+                List<Phones> shops = rest.Get<Phones>("phones");
+                foreach (var item in shops)
+                {
+                    Console.WriteLine(item.Phoneid + ": " + item.Brand);
+                }
+            }
+            if (entity == "Employee")
+            {
+                List<Employee> shops = rest.Get<Employee>("employee");
+                foreach (var item in shops)
+                {
+                    Console.WriteLine(item.EmployeeId + ": " + item.EmployeeName);
                 }
             }
             Console.ReadLine();
@@ -41,6 +69,26 @@ namespace YTG35V_HFT_2021222.Client
                 one.ShopName = name;
                 rest.Put(one, "phoneshop");
             }
+            if(entity == "Phones")
+            {
+                Console.Write("Enter Phone's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Phones one = rest.Get<Phones>(id, "phones");
+                Console.Write($"New name [old: {one.Brand}]: ");
+                string name = Console.ReadLine();
+                one.Brand = name;
+                rest.Put(one, "phones");
+            }
+            if (entity == "Employee")
+            {
+                Console.Write("Enter Employee's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Employee one = rest.Get<Employee>(id, "employee");
+                Console.Write($"New name [old: {one.EmployeeName}]: ");
+                string name = Console.ReadLine();
+                one.EmployeeName = name;
+                rest.Put(one, "employee");
+            }
         }
         static void Delete(string entity)
         {
@@ -48,7 +96,19 @@ namespace YTG35V_HFT_2021222.Client
             {
                 Console.Write("Enter phoneshop's id to delete: ");
                 int id = int.Parse(Console.ReadLine());
-                rest.Delete(id, "phoneshop");
+                rest.Delete(id, "Phoneshop");
+            }
+            if(entity == "Phones")
+            {
+                Console.Write("Enter phone's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "Phones");
+            }
+            if (entity == "Employee")
+            {
+                Console.Write("Enter Employee's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "Employee");
             }
         }
 

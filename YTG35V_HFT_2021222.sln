@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{FBCAA0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTG35V_HFT_2021222.Repository", "YTG35V_HFT_202122.Repository\YTG35V_HFT_2021222.Repository.csproj", "{A5EF4B9E-0C4B-44B0-8C21-93C2C4E1DAED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTG35V_HFT_2021222.Endpoint", "WebApplication1\YTG35V_HFT_2021222.Endpoint.csproj", "{045DEFBE-B22E-440D-AB37-12D423EC69EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTG35V_HFT_2021222.Endpoint", "WebApplication1\YTG35V_HFT_2021222.Endpoint.csproj", "{045DEFBE-B22E-440D-AB37-12D423EC69EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

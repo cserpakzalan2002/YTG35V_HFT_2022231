@@ -82,10 +82,38 @@ namespace YTG35V_HFT_2021222.Logic
             return this.repo.Read(id).Employees
                 .Max(t => t.EmployeeId);
         }
-        public double GetoldestEmployees(int id)
+        public double GetHowmanyEmployees(int id)
         {
             return this.repo.Read(id).Employees
                 .Min(t => t.EmployeeId);
         }
+        
+        public IEnumerable<OldestEmployee> oldestEmployees(IEmployeesLogic logic)
+        {
+            var q1 = from x in logic.ReadAll()
+                     from y in repo.ReadAll()
+                     where x.PhoneshopId == y.PhoneshopId
+                     group y by y.PhoneshopId into g
+                     select new OldestEmployee()
+                     {
+                         szam = g.Key.ToString(),
+                         count = g.Count()
+                     };
+            return q1;
+        }
+        
+
+
+
+
+
+    }
+
+
+    public class OldestEmployee
+    {
+        public string szam { get; set; }
+        public int count { get; set; }
+        
     }
 }

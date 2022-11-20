@@ -16,6 +16,7 @@ namespace YTG35V_HFT_2021222.Models.classes
         
         public int Phoneid { get; set; }
 
+        
         [StringLength(240)]
         public string Brand { get; set; }
 

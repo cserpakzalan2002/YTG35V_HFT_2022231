@@ -13,10 +13,10 @@ namespace YTG35V_HFT_2021222.Endpoint.Controllers
     [Route("[controller]")]
     [ApiController]
     
-    public class PhoneController : ControllerBase
+    public class PhonesController : ControllerBase
     {
         IPhoneLogic logic;
-        public PhoneController(IPhoneLogic logic)
+        public PhonesController(IPhoneLogic logic)
         {
             this.logic = logic;
         }
@@ -35,8 +35,8 @@ namespace YTG35V_HFT_2021222.Endpoint.Controllers
 
         [HttpPost]
         public void Create([FromBody] Phones value)
-        {
-            this.logic.Create(value);
+        {    
+                this.logic.Create(value);
         }
 
         [HttpPut]

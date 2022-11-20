@@ -35,8 +35,8 @@ namespace YTG35V_HFT_2021222.Endpoint.Controllers
 
         [HttpPost]
         public void Create([FromBody] Phoneshop value)
-        {
-            this.logic.Create(value);
+        {        
+                this.logic.Create(value);
         }
 
         [HttpPut]

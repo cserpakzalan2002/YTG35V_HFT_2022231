@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using YTG35V_HFT_2021222.Models.classes;
 
 namespace YTG35V_HFT_2021222.Logic
 {
     public interface IEmployeesLogic
     {
-        public double EmployeesRating(string number);
+        public IEnumerable<GreatEmployee> greatEmployees(IPhoneLogic logic);
         void Create(Employee item);
         void Delete(int id);
         Employee Read(int id);
