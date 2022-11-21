@@ -72,21 +72,8 @@ namespace YTG35V_HFT_2021222.Logic
                 
         }
        
-        public double Getnewestphone(int id)
-        {
-            return this.repo.Read(id).Phones
-                .Max(t=>t.PhonesRating);
-        }
-        public double GetnewestEmployees(int id)
-        {
-            return this.repo.Read(id).Employees
-                .Max(t => t.EmployeeId);
-        }
-        public double GetHowmanyEmployees(int id)
-        {
-            return this.repo.Read(id).Employees
-                .Min(t => t.EmployeeId);
-        }
+       
+      
         
         public IEnumerable<EmployeesToShops> EmployeesToShopss(IEmployeesLogic logic)
         {

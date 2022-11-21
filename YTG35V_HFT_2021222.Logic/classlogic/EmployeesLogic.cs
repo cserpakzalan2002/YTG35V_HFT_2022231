@@ -21,7 +21,7 @@ namespace YTG35V_HFT_2021222.Logic
 
         public void Create(Employee item)
         {
-            if (item.EmployeeName.Length < 3)
+            if (item.EmployeeName.Length < 1)
             {
                 throw new ArgumentException("The shop name is too short");
             }
