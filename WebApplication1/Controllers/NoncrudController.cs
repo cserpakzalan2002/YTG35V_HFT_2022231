@@ -46,7 +46,7 @@ namespace YTG35V_HFT_2021222.Endpoint.Controllers
         {
             return this.logic.BestEmployee(logic2);
         }
-        [HttpGet()]
+        [HttpGet("{id}")]
         public double avaragethePhonebyemployeeId(int id)
         {
             return this.logic2.getavgphone(id);

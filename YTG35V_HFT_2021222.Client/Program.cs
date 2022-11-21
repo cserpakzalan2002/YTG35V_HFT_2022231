@@ -1,13 +1,69 @@
 ﻿using ConsoleTools;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using YTG35V_HFT_2021222.Models.classes;
 
 namespace YTG35V_HFT_2021222.Client
 {
+    static class MyExtension
+    {
+        public static void ToConsole<T>(this IEnumerable<T> input, string header)
+        {
+            Console.WriteLine($"********** {header} **********");
+            foreach (T item in input)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine($"********************************");
+            Console.ReadLine();
+        }
+    }
     internal class Program
     {
         static RestService rest;
+
+        static void EmployeesToShopss()
+        {
+            
+            List<object> list = rest.Get<object>("/NonCrud/EmployeesToShopss");
+            list.ToConsole("How many employees in every shop");
+           
+            
+            
+        }
+        static void BestShop()
+        {
+
+            object list = rest.GetSingle<object>("/NonCrud/BestShop");
+            Console.WriteLine($"The best shop {list}");
+            Console.ReadLine();
+
+        }
+        static void EmployeesToPhoneCountWhatheysell()
+        {
+            List<object> list = rest.Get<object>("/NonCrud/EmployeesToPhoneCountWhatheysell");
+            list.ToConsole("List of employees and their phone what they selling");
+        }
+        static void BestEmployee()
+        {
+            object list = rest.GetSingle<object>("/NonCrud/BestEmployee");
+            Console.WriteLine($"The best Employee {list}" );
+            Console.ReadLine();
+        }
+        static void avaragethePhonebyemployeeId()
+        {
+            Console.WriteLine("Enter an Employee Id: ");
+            int id = int.Parse(Console.ReadLine());
+            var avarage = rest.Get<object>(id, "/NonCrud/avaragethePhonebyemployeeId");
+            Console.WriteLine("The avarage is: ");
+            Console.WriteLine(avarage);
+            
+            Console.ReadLine();
+
+
+
+        }
         static void Create(string entity)
         {
             if (entity == "Phoneshop")
@@ -139,13 +195,21 @@ namespace YTG35V_HFT_2021222.Client
                 .Add("Update", () => Update("Phones"))
                 .Add("Exit", ConsoleMenu.Close);
 
-           
+            var noncrudSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("EmployeesToShopss", () => EmployeesToShopss())
+                .Add("BestShop", () => BestShop())
+                .Add("EmployeesToPhoneCountWhatheysell", () => EmployeesToPhoneCountWhatheysell())
+                .Add("BestEmployee", () => BestEmployee())
+                .Add("avaragethePhonebyemployeeId", () => avaragethePhonebyemployeeId())
+                .Add("Exit", ConsoleMenu.Close);
+
 
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Phoneshops", () => phoneshopSubMenu.Show())
                 .Add("Employees", () => employeeSubMenu.Show())
-                .Add("Phones", () => phonesSubMenu.Show())       
+                .Add("Phones", () => phonesSubMenu.Show())      
+                .Add("Noncrud", () => noncrudSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();

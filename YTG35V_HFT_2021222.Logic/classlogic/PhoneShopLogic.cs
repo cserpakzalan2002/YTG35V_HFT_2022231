@@ -93,10 +93,10 @@ namespace YTG35V_HFT_2021222.Logic
             var q1 = from x in logic.ReadAll()
                      from y in repo.ReadAll()
                      where x.PhoneshopId == y.PhoneshopId
-                     group y by y.PhoneshopId into g
+                     group y by y.ShopName into g
                      select new EmployeesToShops()
                      {
-                         name = g.Key.ToString(),
+                         name = g.Key,
                          count = g.Count()
                      };
             return q1;
