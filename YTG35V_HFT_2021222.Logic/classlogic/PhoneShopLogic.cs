@@ -58,19 +58,9 @@ namespace YTG35V_HFT_2021222.Logic
 
         //non cruds
 
-        public double AvaragePhoneshop(string number)
-        {
-            return this.repo.ReadAll()
-                .Where(t => t.ShopName == number)
-                .Average(t => t.Rating);
+       
 
-        }
-
-        public IEnumerable<Employee> Workers(int vmi)
-        {
-            return this.repo.Read(vmi).Employees;
-                
-        }
+        
        
        
       

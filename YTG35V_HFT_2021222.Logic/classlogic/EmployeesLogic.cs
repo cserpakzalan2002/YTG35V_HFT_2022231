@@ -69,6 +69,7 @@ namespace YTG35V_HFT_2021222.Logic
             return q1;
         }
 
+
         public GreatEmployee BestEmployee(IPhoneLogic logic)
         {
             var q1 = from x in logic.ReadAll()
