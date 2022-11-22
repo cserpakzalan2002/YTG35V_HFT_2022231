@@ -20,7 +20,7 @@ namespace YTG35V_HFT_2021222.Models.classes
         [StringLength(240)]
         public string Brand { get; set; }
 
-        [ForeignKey(nameof(Phoneshop))]
+        //[ForeignKey(nameof(Phoneshop))]
         public int EmployeesId { get; set; }       
 
         public double PhonesRating { get; set; }

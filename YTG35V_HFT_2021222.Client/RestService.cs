@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -133,6 +134,8 @@ namespace YTG35V_HFT_2021222.Client
 
         public void Put<T>(T item, string endpoint)
         {
+            
+
             HttpResponseMessage response =
                 client.PutAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
 

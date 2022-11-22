@@ -8,7 +8,7 @@ using YTG35V_HFT_2021222.Models.classes;
 
 namespace YTG35V_HFT_2021222.Repository
 {
-    public class IphoneShopRepository : Repository<Phoneshop>, IRepository<Phoneshop>
+    public class IphoneShopRepository : Repository<Phoneshop> , IRepository<Phoneshop>
     {
         public IphoneShopRepository(PhoneDbContext ctx) : base(ctx)
         {
@@ -30,7 +30,10 @@ namespace YTG35V_HFT_2021222.Repository
             var old = Read(item.PhoneshopId);
             foreach (var prop in old.GetType().GetProperties())
             {
-                prop.SetValue(old, prop.GetValue(item));
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
             }
             ctx.SaveChanges();
         }

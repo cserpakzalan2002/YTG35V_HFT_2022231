@@ -118,33 +118,46 @@ namespace YTG35V_HFT_2021222.Client
             if (entity == "Phoneshop")
             {
                 Console.Write("Enter phoneshopname's id to update: ");
-                int id = int.Parse(Console.ReadLine());
+                int id = int.Parse(Console.ReadLine());              
                 Phoneshop one = rest.Get<Phoneshop>(id, "phoneshop");
+                Phoneshop vmi = new Phoneshop()
+                {
+                    PhoneshopId = one.PhoneshopId,
+                };
                 Console.Write($"New name [old: {one.ShopName}]: ");
-                string name = Console.ReadLine();
-                one.ShopName = name;
-                rest.Put(one, "phoneshop");
+                string name = Console.ReadLine();              
+                vmi.ShopName = name;
+                rest.Put(vmi, "Phoneshop");
             }
             if(entity == "Phones")
             {
                 Console.Write("Enter Phone's id to update: ");
                 int id = int.Parse(Console.ReadLine());
-                Phones one = rest.Get<Phones>(id, "phones");
+                Phones one = rest.Get<Phones>(id, "Phones");
+                Phones vmi = new Phones()
+                {
+                    Phoneid = one.Phoneid,
+                };
                 Console.Write($"New name [old: {one.Brand}]: ");
                 string name = Console.ReadLine();
-                one.Brand = name;
-                rest.Put(one, "phones");
+                vmi.Brand = name;
+                rest.Put(vmi, "Phones");
             }
             if (entity == "Employee")
             {
                 Console.Write("Enter Employee's id to update: ");
                 int id = int.Parse(Console.ReadLine());
-                Employee one = rest.Get<Employee>(id, "employee");
+                Employee one = rest.Get<Employee>(id, "Employee");
+                Employee vmi = new Employee()
+                {
+                    EmployeeId = one.EmployeeId,
+                };
                 Console.Write($"New name [old: {one.EmployeeName}]: ");
                 string name = Console.ReadLine();
-                one.EmployeeName = name;
-                rest.Put(one, "employee");
+                vmi.EmployeeName = name;
+                rest.Put(vmi, "Employee");
             }
+            
         }
         static void Delete(string entity)
         {

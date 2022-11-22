@@ -22,9 +22,13 @@ namespace YTG35V_HFT_2021222.Repository
         public override void Update(Phones item)
         {
             var old = Read(item.Phoneid);
+            ;
             foreach (var prop in old.GetType().GetProperties())
             {
-                prop.SetValue(old, prop.GetValue(item));
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
             }
             ctx.SaveChanges();
         }
